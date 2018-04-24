@@ -31,7 +31,7 @@ const start = () => {
 			sample.sound.play();
 			sample.volumes.master.target = 1;
 		}
-		// triggerRandom();
+		triggerRandom();
 	}, 0 * SECOND); // TODO intro length
 };
 const loaded = () => {

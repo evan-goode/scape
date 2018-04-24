@@ -1,27 +1,27 @@
 const samples = [
 	{
-		src: "samples/a.wav.mp3",
+		src: "samples/a.mp3",
 		type: "background",
 		region: {
 			a: [33.777473, -84.407245],
 			b: [33.781428, -84.399134],
 		},
 	}, {
-		src: "samples/b.wav.mp3",
+		src: "samples/b.mp3",
 		type: "background",
 		region: {
 			a: [33.777259, -84.399134],
 			b: [33.781581, -84.391195],
 		},
 	}, {
-		src: "samples/c.wav.mp3",
+		src: "samples/c.mp3",
 		type: "background",
 		region: {
 			a: [33.773270, -84.407202],
 			b: [33.777016, -84.399134],
 		},
 	}, {
-		src: "samples/d.wav.mp3",
+		src: "samples/d.mp3",
 		type: "background",
 		region: {
 			a: [33.771521, -84.399038],
@@ -34,13 +34,13 @@ const samples = [
 			a: [33.774274, -84.398201],
 			b: [33.774274, -84.398201],
 		},
-	// }, {
-	// 	src: "samples/burger-bowl.mp3",
-	// 	type: "background",
-	// 	region: {
-	// 		a: [33.779527, -84.403471],
-	// 		b: [33.779477, -84.402364],
-	// 	},
+	}, {
+		src: "samples/burger-bowl.mp3",
+		type: "background",
+		region: {
+			a: [33.779527, -84.403471],
+			b: [33.779477, -84.402364],
+		},
 	}, {
 		src: "samples/crash.mp3",
 		type: "special",

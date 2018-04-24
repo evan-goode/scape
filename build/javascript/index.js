@@ -41,7 +41,6 @@ var start = function start() {
 				sample.sound.play();
 				sample.volumes.master.target = 1;
 			}
-			// triggerRandom();
 		} catch (err) {
 			_didIteratorError = true;
 			_iteratorError = err;
@@ -56,6 +55,8 @@ var start = function start() {
 				}
 			}
 		}
+
+		triggerRandom();
 	}, 0 * SECOND); // TODO intro length
 };
 var loaded = function loaded() {
