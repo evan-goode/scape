@@ -1,0 +1,48 @@
+if (navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform)) {
+	alert("scape isn't compatible with iOS Safari yet. You may notice some " +
+	      "audio issues.");
+}
+
+const playRandom = () => {
+	const sample = chance.weighted(random, random.map(sample => sample.weight));
+	sample.sound.play();
+	sample.volumes.master.target = chance.floating({min: 0.5, max: 1});
+	const pan = chance.pickone([1, -1]) * chance.floating({min: 0.3, max: 1});
+	sample.sound.stereo(pan);
+	triggerRandom();
+};
+const triggerRandom = () => {
+	setTimeout(playRandom, chance.integer({
+		min: 10 * SECOND,
+		max: 20 * SECOND,
+	}));
+};
+
+const start = () => {
+	document.querySelector(".main").classList.remove("hidden");
+	document.querySelector(".instructions").classList.add("hidden");
+	// samples.map((sample) => {
+	// 	if (sample.type === "intro") {
+	// 		sample.sound.play();
+	// 	}
+	// });
+	setTimeout(() => {
+		for (const sample of backgrounds) {
+			sample.sound.play();
+			sample.volumes.master.target = 1;
+		}
+		// triggerRandom();
+	}, 0 * SECOND); // TODO intro length
+};
+const loaded = () => {
+	window.started = false;
+	const triggerStart = () => {
+		if (! window.started) {
+			window.started = true;
+			start();
+		}
+	}
+	document.querySelector(".instructions").classList.remove("hidden");
+	window.addEventListener("touchend", triggerStart);
+	window.addEventListener("click", triggerStart);
+};

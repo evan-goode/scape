@@ -1,0 +1,124 @@
+"use strict";
+
+var samples = [{
+	src: "samples/a.wav.mp3",
+	type: "background",
+	region: {
+		a: [33.777473, -84.407245],
+		b: [33.781428, -84.399134]
+	}
+}, {
+	src: "samples/b.wav.mp3",
+	type: "background",
+	region: {
+		a: [33.777259, -84.399134],
+		b: [33.781581, -84.391195]
+	}
+}, {
+	src: "samples/c.wav.mp3",
+	type: "background",
+	region: {
+		a: [33.773270, -84.407202],
+		b: [33.777016, -84.399134]
+	}
+}, {
+	src: "samples/d.wav.mp3",
+	type: "background",
+	region: {
+		a: [33.771521, -84.399038],
+		b: [33.776872, -84.390713]
+	}
+}, {
+	src: "samples/fountain.mp3",
+	type: "background",
+	region: {
+		a: [33.774274, -84.398201],
+		b: [33.774274, -84.398201]
+	}
+	// }, {
+	// 	src: "samples/burger-bowl.mp3",
+	// 	type: "background",
+	// 	region: {
+	// 		a: [33.779527, -84.403471],
+	// 		b: [33.779477, -84.402364],
+	// 	},
+}, {
+	src: "samples/crash.mp3",
+	type: "special",
+	region: {
+		a: [33.777185, -84.402503],
+		b: [33.777994, -84.401995]
+	}
+}, {
+	src: "samples/intro.wav.mp3",
+	type: "intro"
+}, {
+	src: "samples/ahoh-1.wav.mp3",
+	type: "random",
+	weight: 1 / 2
+}, {
+	src: "samples/ahoh-2.wav.mp3",
+	type: "random",
+	weight: 1 / 2
+}, {
+	src: "samples/ahoh-3.wav.mp3",
+	type: "random",
+	weight: 1 / 2
+}, {
+	src: "samples/birds.wav.mp3",
+	type: "random",
+	weight: 1 / 2
+}, {
+	src: "samples/chalkboard.wav.mp3",
+	type: "random",
+	weight: 1 / 5
+}, {
+	src: "samples/chordsynth.wav.mp3",
+	type: "random",
+	weight: 1 / 3
+}, {
+	src: "samples/colosseum.wav.mp3",
+	type: "random",
+	weight: 1 / 4
+}, {
+	src: "samples/deep.wav.mp3",
+	type: "random",
+	weight: 1 / 2
+}, {
+	src: "samples/equality.wav.mp3",
+	type: "random",
+	weight: 1 / 6
+}, {
+	src: "samples/guitar-strum.wav.mp3",
+	type: "random",
+	weight: 1 / 5
+}, {
+	src: "samples/heartbeats.wav.mp3",
+	type: "random",
+	weight: 1 / 2
+}, {
+	src: "samples/letsgosynth.wav.mp3",
+	type: "random",
+	weight: 1 / 3
+}, {
+	src: "samples/colosseum.wav.mp3",
+	type: "random",
+	weight: 1 / 4
+}, {
+	src: "samples/treasure.wav.mp3",
+	type: "random",
+	weight: 1
+}, {
+	src: "samples/xbox.wav.mp3",
+	type: "random",
+	weight: 1 / 3
+}];
+var backgrounds = samples.filter(function (sample) {
+	return sample.type === "background";
+});
+var random = samples.filter(function (sample) {
+	return sample.type === "random";
+});
+var special = samples.filter(function (sample) {
+	return sample.type === "special";
+});

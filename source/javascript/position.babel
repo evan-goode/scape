@@ -1,0 +1,62 @@
+(() => {
+	const setPosition = position => {
+		const coordinates = [position.coords.latitude,
+			                 position.coords.longitude];
+		for (const sample of backgrounds) {
+			const closest = findClosestPoint(coordinates,
+			                                 sample.region.a,
+			                                 sample.region.b);
+			sample.sound.pos(closest[0] * MULTIPLIER, 0, closest[1] * MULTIPLIER);
+		}
+
+		for (const sample of special) {
+			const closest = findClosestPoint(coordinates,
+			                                 sample.region.a,
+			                                 sample.region.b);
+			if (! sample.played && window.started
+			    && coordinates[0] === closest[0]
+			    && coordinates[1] === closest[1]
+			) {
+				console.log("playing crash");
+				sample.played = true;
+				for (const other of samples) {
+					if (other.type !== "special") {
+						other.volumes.override.target = 0;
+					}
+				}
+				sample.sound.play();
+				setTimeout(() => {
+					for (const other of samples) {
+						if (other.type !== "special") {
+							other.volumes.override.target = 1;
+						}
+					}
+				}, 1 * MINUTE);
+			}
+		}
+		Howler.pos(coordinates[0] * MULTIPLIER, 0, coordinates[1] * MULTIPLIER);
+	}
+	navigator.geolocation.watchPosition(setPosition);
+
+	/**
+	 * find the closest point within a rectangle to another point
+	 * @param {array} point the point to approximate
+	 * @param {array} a the bottom-left corner of the rectangle
+	 * @param {array} b the top-right corner of the rectangle
+	 * @return {array} the closest point within the rectangle to the given
+	 *                 point
+	 */
+	const findClosestPoint = (point, a, b) => {
+		const closest = [];
+		for (let dimension = 0; dimension < point.length; dimension += 1) {
+			if (point[dimension] < a[dimension]) {
+				closest[dimension] = a[dimension];
+			} else if (point[dimension] > b[dimension]) {
+				closest[dimension] = b[dimension];
+			} else {
+				closest[dimension] = point[dimension];
+			}
+		}
+		return closest;
+	};
+})();

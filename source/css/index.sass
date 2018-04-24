@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat")
+@import url("https://fonts.googleapis.com/css?family=Shrikhand")
+
+$color: #f45894
+
+*
+	overflow: hidden
+	box-sizing: border-box
+@supports (-webkit-overflow-scrolling: touch)
+	*
+		cursor: pointer
+
+html, body
+	margin: 0
+	height: 100vh
+	background: white
+body
+	color: $color
+	display: flex
+	align-items: center
+	justify-content: center
+	flex-direction: column
+	font-family: "Montserrat"
+	> *
+		padding: 1rem
+.instructions
+	transition: opacity 1s
+.hidden
+	opacity: 0
+.logo svg
+	width: 60vw
+	max-width: 60vh
+	.main
+		transition: opacity 4s
+		font-family: Shrikhand
+		fill: $color
+		font-size: 44px
+	.progress
+		$empty: white
+		fill: $empty
+		&.loading
+			animation: blink 0.2s steps(2, end) infinite
+		&.loaded
+			fill: $color
+			animation: none
+		@keyframes blink
+			from
+				fill: $color
+			to
+				fill: $empty

@@ -1,0 +1,4 @@
+const TAU = 2 * Math.PI;
+const SECOND = 10 ** 3;
+const MINUTE = 60 * SECOND;
+const MULTIPLIER = 5000;

@@ -1,0 +1,24 @@
+doctype html
+html(lang="en")
+	head
+		meta(charset="utf-8")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		meta(name="apple-mobile-web-app-capable", content="yes")
+		meta(name="mobile-web-app-capable", content="yes")
+		link(rel="stylesheet" href="css/index.css")
+		title scape
+	body
+		section.logo
+			include images/logo.svg
+		section.instructions.hidden tap to begin
+		script(src="node_modules/howler/dist/howler.min.js")
+		script(src="node_modules/tunajs/tuna-min.js")
+		script(src="node_modules/howler-plugin-effect-chain/dist/index.js")
+		script(src="node_modules/chance/dist/chance.min.js")
+		script(src="javascript/utilities.js")
+		script(src="javascript/samples.js")
+		script(src="javascript/index.js")
+		script(src="javascript/load-samples.js")
+		script(src="javascript/compass.js")
+		script(src="javascript/position.js")
+		//-script(src="javascript/audio-effects.js")

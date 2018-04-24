@@ -1,0 +1,13 @@
+{
+  "name": "nights",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "chance": "^1.0.13",
+    "howler": "^2.0.9",
+    "howler-plugin-effect-chain": "^0.1.2",
+    "soundbank-pitch-shift": "^1.0.3",
+    "tunajs": "^1.0.0"
+  }
+}

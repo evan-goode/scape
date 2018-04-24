@@ -1,0 +1,40 @@
+(() => {
+	window.addEventListener("deviceorientation", (event) => {
+		const alpha = (event.alpha + 90) * Math.PI / 180;
+		console.log(alpha);
+		Howler.orientation(Math.cos(alpha), 0, Math.sin(alpha), 0, 1, 0);
+	});
+	// set a default orientation if we cannot get device orientation
+	window.dispatchEvent(new DeviceOrientationEvent("deviceorientation", {
+		alpha: 0,
+	}));
+
+	// ease each volume of each sample to its respective target
+	for (const sample of samples) {
+		for (const key in sample.volumes) {
+			const volume = sample.volumes[key];
+			const transition = volume.ease;
+			const ease = (object) => {
+				object.current = (((1 - transition) * object.current) +
+				                  (transition * object.target));
+				window.requestAnimationFrame(() => {
+					ease(object);
+				});
+			};
+			ease(volume);
+		}
+	}
+
+	// set the volume of each sample to the product of each of its volumes
+	for (const sample of samples) {
+		const set = (sample) => {
+			const values = Object.values(sample.volumes);
+			const volume = values.reduce((total, current) => {
+				return total * current.current;
+			}, 1);
+			sample.sound.volume(volume);
+			window.requestAnimationFrame(() => set(sample));
+		};
+		set(sample);
+	}
+})();

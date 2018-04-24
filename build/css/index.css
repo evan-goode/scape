@@ -1,0 +1,56 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+@import url("https://fonts.googleapis.com/css?family=Shrikhand");
+* {
+  overflow: hidden;
+  box-sizing: border-box; }
+
+@supports (-webkit-overflow-scrolling: touch) {
+  * {
+    cursor: pointer; } }
+
+html, body {
+  margin: 0;
+  height: 100vh;
+  background: white; }
+
+body {
+  color: #f45894;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  font-family: "Montserrat"; }
+  body > * {
+    padding: 1rem; }
+
+.instructions {
+  transition: opacity 1s; }
+
+.hidden {
+  opacity: 0; }
+
+.logo svg {
+  width: 60vw;
+  max-width: 60vh; }
+  .logo svg .main {
+    transition: opacity 4s;
+    font-family: Shrikhand;
+    fill: #f45894;
+    font-size: 44px; }
+  .logo svg .progress {
+    fill: white; }
+    .logo svg .progress.loading {
+      animation: blink 0.2s steps(2, end) infinite; }
+    .logo svg .progress.loaded {
+      fill: #f45894;
+      animation: none; }
+
+@keyframes blink {
+  from {
+    fill: #f45894; }
+  to {
+    fill: white; } }
